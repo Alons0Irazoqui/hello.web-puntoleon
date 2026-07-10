@@ -1,0 +1,1806 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Punto León Inmobiliaria — Casas nuevas en venta en León, Guanajuato. Conoce Tracia Residencial y Privanzas: fraccionamientos con casa club, acceso controlado y alta plusvalía. Agenda tu visita.">
+<meta name="keywords" content="inmobiliaria león guanajuato, casas en venta león, fraccionamientos león gto, tracia residencial, privanzas león, punto león inmobiliaria, casas nuevas león">
+<meta property="og:title" content="Punto León Inmobiliaria | Tu Nuevo Hogar en León, Gto.">
+<meta property="og:description" content="4 fraccionamientos, un solo lugar. Casas nuevas con casa club, seguridad y alta plusvalía en las mejores zonas de León.">
+<title>Punto León Inmobiliaria | Casas y Fraccionamientos en León, Gto.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* =============================================
+   VARIABLES
+============================================= */
+:root {
+  /* Punto León Inmobiliaria — dorado tierra + verde salvia (extraídos del logo) */
+  --gold:        #b99a5b;
+  --gold-light:  #e0c48c;
+  --gold-dark:   #8f7440;
+  --gold-subtle: rgba(185,154,91,0.1);
+  --sage:        #7c8f5a;
+  --sage-light:  #9fae7e;
+  --sage-dark:   #5c6c40;
+  --amber:       #cbb27a;
+  --black:       #1b1f17;
+  --dark:        #1b1f17;
+  --dark-2:      #23281f;
+  --dark-3:      #2d3326;
+  --white:       #FFFFFF;
+  --cream:       #faf6ec;
+  --cream-2:     #f2ecd9;
+  --text-dark:   #2a2a20;
+  --text-mid:    #55554a;
+  --text-soft:   #8a8a78;
+  --text-muted:  rgba(255,255,255,0.55);
+  --text-dim:    rgba(255,255,255,0.32);
+  --border-d:    rgba(185,154,91,0.16);
+  --border-l:    rgba(185,154,91,0.22);
+  --font-serif:  'Cormorant Garamond', Georgia, serif;
+  --font-sans:   'Inter', system-ui, sans-serif;
+  --ease-out:    cubic-bezier(0.22,1,0.36,1);
+  --ease-inout:  cubic-bezier(0.65,0,0.35,1);
+}
+
+/* =============================================
+   RESET
+============================================= */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--dark);
+  color: var(--white);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+ul { list-style: none; }
+
+/* =============================================
+   LOADER  — premium rediseño con logo
+============================================= */
+#loader {
+  position: fixed; inset: 0; z-index: 9999;
+  background: var(--cream);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 0;
+  transition: opacity 0.9s var(--ease-out), visibility 0.9s;
+}
+#loader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+
+.loader-logo-wrap {
+  animation: ldLogoIn 0.9s var(--ease-out) both;
+  text-align: center;
+}
+.loader-logo-wrap img {
+  width: 230px; height: auto;
+  animation: ldPulse 2.8s ease-in-out infinite;
+}
+@keyframes ldLogoIn { from { opacity:0; transform:scale(0.88) translateY(12px); } to { opacity:1; transform:scale(1) translateY(0); } }
+@keyframes ldPulse   { 0%,100% { transform:scale(1); } 50% { transform:scale(1.04); } }
+
+.loader-tag {
+  font-size: 9px; letter-spacing: 5px;
+  color: var(--gold); text-transform: uppercase;
+  margin-top: 2px; font-weight: 500;
+  animation: ldFadeUp 0.8s var(--ease-out) 0.5s both;
+}
+.loader-progress {
+  width: 110px; height: 1px;
+  background: rgba(0,0,0,0.1);
+  margin-top: 26px; overflow: hidden;
+  animation: ldFadeUp 0.5s var(--ease-out) 0.3s both;
+}
+.loader-progress-fill {
+  height: 100%; width: 0%;
+  background: linear-gradient(90deg, var(--gold-dark), var(--gold-light), var(--gold-dark));
+  animation: ldFill 1.4s var(--ease-inout) 0.4s forwards;
+}
+@keyframes ldFill   { to { width: 100%; } }
+@keyframes ldFadeUp { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+
+/* =============================================
+   MOBILE MENU
+============================================= */
+#mobile-menu {
+  position: fixed; inset: 0; z-index: 999;
+  background: rgba(5,5,5,0.98);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 36px;
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.4s var(--ease-out), visibility 0.4s;
+}
+#mobile-menu.open { opacity: 1; visibility: visible; }
+
+.mob-logo {
+  display: flex; justify-content: center; margin-bottom: 10px;
+}
+.mob-logo-pill {
+  display: flex; align-items: center;
+}
+.mob-logo-pill img {
+  height: 90px; width: auto; display: block;
+  filter: drop-shadow(0 0 14px rgba(185,154,91,0.35));
+}
+
+#mobile-menu a {
+  font-family: var(--font-serif);
+  font-size: 32px; font-weight: 300;
+  color: var(--white); letter-spacing: 3px;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+#mobile-menu a:hover { color: var(--gold); }
+
+/* =============================================
+   NAVIGATION
+============================================= */
+#nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 18px 5%;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: background 0.5s var(--ease-out), padding 0.4s var(--ease-out),
+              backdrop-filter 0.5s, box-shadow 0.4s;
+}
+#nav.scrolled {
+  padding: 12px 5%;
+  background: rgba(8,8,8,0.86);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  box-shadow: 0 1px 0 var(--border-d);
+}
+
+.nav-logo { display: flex; align-items: center; gap: 10px; }
+.nav-logo-pill {
+  display: flex; align-items: center;
+  flex-shrink: 0;
+}
+.nav-logo-pill img {
+  height: 56px; width: auto; display: block;
+  filter: drop-shadow(0 0 10px rgba(185,154,91,0.3));
+  transition: filter 0.3s;
+}
+.nav-logo-text { line-height: 1.1; }
+.nav-logo-text strong {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 13px; font-weight: 600;
+  color: var(--white); letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.nav-logo-text small {
+  font-size: 8px; letter-spacing: 3px;
+  color: var(--gold); text-transform: uppercase;
+}
+
+.nav-links { display: flex; align-items: center; gap: 34px; }
+.nav-links a {
+  font-size: 10px; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--text-muted);
+  transition: color 0.3s; font-weight: 400;
+}
+.nav-links a:hover { color: var(--white); }
+
+.nav-cta {
+  padding: 9px 22px;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-size: 9.5px; letter-spacing: 2.5px;
+  text-transform: uppercase; font-weight: 500;
+  transition: background 0.3s, color 0.3s;
+  font-family: var(--font-sans);
+}
+.nav-cta:hover { background: var(--gold); color: var(--black); }
+
+.nav-ham {
+  display: none; flex-direction: column; gap: 5px; padding: 4px;
+}
+.nav-ham span { display: block; width: 24px; height: 1.5px; background: var(--white); transition: transform 0.3s, opacity 0.3s; }
+.nav-ham.open span:nth-child(1) { transform: rotate(45deg) translate(4px,4px); }
+.nav-ham.open span:nth-child(2) { opacity: 0; }
+.nav-ham.open span:nth-child(3) { transform: rotate(-45deg) translate(4px,-4px); }
+
+/* =============================================
+   HERO  — imagen real + Ken Burns + typewriter + shimmer
+============================================= */
+#hero {
+  position: relative; height: 100svh; min-height: 620px;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+  background: url('imagenes/privanzas-fachada-exterior.jpg') center 42% / cover no-repeat;
+  background-attachment: fixed;
+}
+
+.hero-overlay {
+  position: absolute; inset: 0; z-index: 1;
+  background:
+    linear-gradient(170deg, rgba(4,4,4,0.88) 0%, rgba(6,6,6,0.62) 45%, rgba(4,4,4,0.82) 100%),
+    radial-gradient(ellipse 70% 60% at 50% 40%, rgba(185,154,91,0.06) 0%, transparent 70%);
+}
+
+#particle-canvas {
+  position: absolute; inset: 0; z-index: 2; pointer-events: none;
+}
+
+.hero-content {
+  position: relative; z-index: 4;
+  text-align: center; max-width: 900px; padding: 0 24px;
+}
+
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 14px;
+  font-size: 9.5px; letter-spacing: 5px; text-transform: uppercase;
+  color: var(--gold); font-weight: 500; margin-bottom: 28px;
+  opacity: 0; transform: translateY(20px);
+  animation: fadeUp 0.9s var(--ease-out) 0.2s forwards;
+}
+.hero-eyebrow::before, .hero-eyebrow::after {
+  content: ''; display: block; width: 38px; height: 1px; background: var(--gold); opacity: 0.5;
+}
+
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(58px, 11vw, 124px);
+  font-weight: 300; line-height: 0.9;
+  letter-spacing: -1px; color: var(--white);
+  margin-bottom: 14px;
+  opacity: 0; transform: translateY(36px);
+  animation: fadeUp 1s var(--ease-out) 0.45s forwards;
+}
+/* Shimmer dorado constante en la palabra destacada del título */
+.hero-title em {
+  font-style: italic;
+  background: linear-gradient(90deg,
+    var(--gold-dark) 0%, var(--gold-light) 28%,
+    #F5E090 50%, var(--gold-light) 72%, var(--gold-dark) 100%);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: goldShimmer 4.5s ease-in-out infinite 2.5s;
+}
+@keyframes goldShimmer {
+  0%   { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
+.hero-subtitle {
+  font-family: var(--font-serif);
+  font-size: clamp(18px, 2.8vw, 28px);
+  font-weight: 300; font-style: italic;
+  color: rgba(255,255,255,0.55); letter-spacing: 2px;
+  margin-bottom: 36px;
+  opacity: 0; transform: translateY(24px);
+  animation: fadeUp 1s var(--ease-out) 0.7s forwards;
+}
+/* Typewriter */
+.typer-word {
+  color: var(--gold-light);
+  font-style: italic;
+  border-right: none;
+}
+.typer-cursor {
+  display: inline-block; width: 2px; height: 0.85em;
+  background: var(--gold); vertical-align: middle;
+  margin-left: 2px;
+  animation: cursorBlink 0.75s ease-in-out infinite;
+}
+@keyframes cursorBlink { 0%,100% { opacity:1; } 50% { opacity:0; } }
+
+.hero-desc {
+  font-size: 15px; color: var(--text-muted);
+  max-width: 500px; margin: 0 auto 50px;
+  line-height: 1.85; font-weight: 300;
+  opacity: 0; transform: translateY(20px);
+  animation: fadeUp 1s var(--ease-out) 0.9s forwards;
+}
+
+.hero-actions {
+  display: flex; align-items: center; justify-content: center;
+  gap: 18px; flex-wrap: wrap;
+  opacity: 0; transform: translateY(20px);
+  animation: fadeUp 1s var(--ease-out) 1.1s forwards;
+}
+
+.btn-primary {
+  padding: 16px 44px; background: var(--gold);
+  color: var(--black); font-size: 10px; letter-spacing: 3px;
+  text-transform: uppercase; font-weight: 600;
+  font-family: var(--font-sans);
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+  display: inline-block;
+}
+.btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 12px 36px rgba(185,154,91,0.3); }
+
+.btn-ghost {
+  padding: 15px 44px;
+  border: 1px solid rgba(255,255,255,0.22);
+  color: var(--white); font-size: 10px; letter-spacing: 3px;
+  text-transform: uppercase; font-weight: 400;
+  font-family: var(--font-sans);
+  transition: border-color 0.3s, color 0.3s, transform 0.3s;
+  display: inline-block;
+}
+.btn-ghost:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+
+.hero-scroll {
+  position: absolute; bottom: 30px; left: 50%;
+  transform: translateX(-50%); z-index: 4;
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  opacity: 0; animation: fadeUp 1s var(--ease-out) 1.6s forwards;
+}
+.hero-scroll span { font-size: 8px; letter-spacing: 4px; text-transform: uppercase; color: var(--text-dim); }
+.scroll-line {
+  width: 1px; height: 46px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  animation: scrollPulse 2.2s ease-in-out infinite;
+}
+@keyframes fadeUp    { to { opacity:1; transform:translateY(0); } }
+@keyframes scrollPulse { 0%,100%{opacity:0.25;} 50%{opacity:1;} }
+
+/* Hero rotating geometric rings */
+.hero-ring {
+  position: absolute; top: 50%; left: 50%;
+  border: 1px solid rgba(185,154,91,0.06);
+  pointer-events: none; z-index: 2;
+}
+.ring-1 { width: 700px; height: 700px; margin: -350px 0 0 -350px; animation: ringRot 34s linear infinite; }
+.ring-2 { width: 500px; height: 500px; margin: -250px 0 0 -250px; border-color: rgba(185,154,91,0.045); animation: ringRot 24s linear infinite reverse; }
+.ring-3 { width: 300px; height: 300px; margin: -150px 0 0 -150px; border-color: rgba(185,154,91,0.035); animation: ringRot 17s linear infinite; }
+@keyframes ringRot { to { transform: rotate(360deg); } }
+
+/* Hero cinematic light sweep on load */
+.hero-flash {
+  position: absolute; top: 0; height: 100%; width: 55%;
+  background: linear-gradient(90deg, transparent, rgba(255,220,100,0.055), transparent);
+  z-index: 3; pointer-events: none;
+  animation: heroFlash 2.2s ease-out 0.9s forwards;
+  left: -55%;
+}
+@keyframes heroFlash { 0%{left:-55%;opacity:1;} 100%{left:115%;opacity:0;} }
+
+/* Hero ambient glow pulse on title area */
+.hero-glow-pulse {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px; height: 300px;
+  background: radial-gradient(ellipse, rgba(185,154,91,0.07) 0%, transparent 70%);
+  pointer-events: none; z-index: 2;
+  animation: glowPulse 5s ease-in-out infinite 1.5s;
+}
+@keyframes glowPulse { 0%,100%{opacity:0.4;transform:translate(-50%,-50%) scale(1);} 50%{opacity:1;transform:translate(-50%,-50%) scale(1.15);} }
+
+/* =============================================
+   LAYOUT HELPERS
+============================================= */
+.container { max-width: 1280px; margin: 0 auto; padding: 0 5%; }
+
+.section-tag {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 9.5px; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--gold); font-weight: 500; margin-bottom: 18px;
+}
+.section-tag::before, .section-tag::after {
+  content: ''; display: block; width: 26px; height: 1px; background: var(--gold); opacity: 0.45;
+}
+.section-tag.no-lines::before, .section-tag.no-lines::after { display: none; }
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(34px,5vw,62px);
+  font-weight: 300; line-height: 1.08; letter-spacing: -0.5px;
+}
+.section-title em { font-style: italic; color: var(--gold); }
+.section-lead {
+  margin-top: 18px; font-size: 15px; max-width: 540px;
+  margin-left: auto; margin-right: auto;
+  line-height: 1.85; font-weight: 300;
+}
+.section-header { text-align: center; margin-bottom: 68px; }
+
+/* =============================================
+   ABOUT  — CREAM section
+============================================= */
+#about {
+  padding: 120px 0;
+  background: var(--cream);
+}
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+
+/* Visual */
+.about-visual { position: relative; }
+.about-img {
+  width: 100%; aspect-ratio: 3/4;
+  object-fit: cover; object-position: center top;
+  display: block;
+}
+.about-badge {
+  position: absolute; top: 24px; right: -20px;
+  width: 92px; height: 92px; background: var(--gold);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 2px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+}
+.about-badge strong { font-family: var(--font-serif); font-size: 28px; font-weight: 600; color: var(--black); line-height: 1; }
+.about-badge span   { font-size: 8px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(0,0,0,0.6); font-weight: 600; text-align: center; line-height: 1.4; }
+
+/* Content */
+.about-content { padding: 0 8px; }
+.about-title {
+  font-family: var(--font-serif);
+  font-size: clamp(28px,3.8vw,48px);
+  font-weight: 300; line-height: 1.15;
+  color: var(--text-dark); margin-bottom: 22px;
+}
+.about-title em { font-style: italic; color: var(--gold); }
+.about-text { font-size: 15px; color: var(--text-mid); line-height: 1.9; margin-bottom: 18px; font-weight: 300; }
+
+.about-stats {
+  display: flex; gap: 36px; flex-wrap: wrap;
+  margin-top: 40px; padding-top: 36px;
+  border-top: 1px solid rgba(185,154,91,0.22);
+}
+.about-stat strong { display: block; font-family: var(--font-serif); font-size: 38px; font-weight: 300; color: var(--gold); line-height: 1; margin-bottom: 5px; }
+.about-stat span   { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-soft); font-weight: 400; }
+
+/* =============================================
+   ROOMS  — DARK section con fotos reales
+============================================= */
+#rooms { padding: 120px 0; background: var(--dark-2); }
+
+.rooms-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 3px; }
+.room-card { position: relative; overflow: hidden; cursor: pointer; }
+.room-card-inner { aspect-ratio: 3/4; position: relative; overflow: hidden; }
+
+.room-card-img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+  transition: transform 0.9s var(--ease-out);
+}
+.room-card:hover .room-card-img { transform: scale(1.07); }
+
+.room-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.2) 55%, transparent 100%);
+  z-index: 1;
+}
+.room-content {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 30px 24px; z-index: 2;
+  transform: translateY(6px);
+  transition: transform 0.5s var(--ease-out);
+}
+.room-card:hover .room-content { transform: translateY(0); }
+
+.room-tag { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 8px; }
+.room-name { font-family: var(--font-serif); font-size: 24px; font-weight: 300; color: var(--white); line-height: 1.2; margin-bottom: 10px; }
+.room-desc {
+  font-size: 12px; color: rgba(255,255,255,0.6); line-height: 1.7; margin-bottom: 14px;
+  max-height: 0; overflow: hidden; opacity: 0;
+  transition: max-height 0.5s var(--ease-out), opacity 0.45s;
+}
+.room-card:hover .room-desc { max-height: 72px; opacity: 1; }
+.room-price { font-family: var(--font-serif); font-size: 26px; font-weight: 300; color: var(--gold); }
+.room-price span { font-size: 11px; color: var(--text-dim); font-family: var(--font-sans); letter-spacing: 1px; }
+
+.room-pills {
+  position: absolute; top: 18px; right: 18px; z-index: 2;
+  display: flex; flex-direction: column; gap: 5px;
+  opacity: 0; transform: translateX(8px);
+  transition: opacity 0.4s, transform 0.4s var(--ease-out);
+}
+.room-card:hover .room-pills { opacity: 1; transform: translateX(0); }
+.room-pill {
+  background: rgba(6,6,6,0.82); backdrop-filter: blur(8px);
+  border: 1px solid var(--border-d);
+  padding: 4px 9px; font-size: 9px; color: var(--gold);
+  letter-spacing: 1.5px; text-transform: uppercase;
+}
+.room-cta {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-serif); font-size: 16px; font-style: italic;
+  color: var(--gold); transition: color 0.3s, gap 0.3s;
+}
+.room-cta:hover { color: var(--gold-light); gap: 10px; }
+
+/* Grid de fraccionamientos — mismo lenguaje visual que .rooms-grid */
+.frac-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 3px; }
+.frac-grid.cols-2 { grid-template-columns: 1fr 1fr; max-width: 940px; margin: 0 auto; }
+
+/* =============================================
+   DESARROLLOS  — Tracia / Privanzas (fichas de modelos + ubicación)
+============================================= */
+#tracia    { padding: 120px 0; background: var(--cream-2); }
+#privanzas { padding: 120px 0; background: var(--white); }
+.dev-intro { max-width: 720px; margin: 0 auto 20px; text-align: center; font-size: 15px; line-height: 1.85; color: var(--text-mid); font-weight: 300; }
+.dev-badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 26px 0 64px; }
+.dev-badge {
+  font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600;
+  color: var(--gold-dark); background: var(--gold-subtle); border: 1px solid var(--border-d);
+  padding: 8px 16px;
+}
+
+.model-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 26px; margin-top: 8px; }
+.model-grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 22px; margin-top: 8px; }
+.model-card {
+  background: var(--white); border: 1px solid var(--border-d);
+  overflow: hidden; transition: box-shadow 0.4s, transform 0.4s var(--ease-out);
+}
+.model-card:hover { transform: translateY(-6px); box-shadow: 0 16px 46px rgba(0,0,0,0.1); }
+.model-card-media {
+  aspect-ratio: 4/3; overflow: hidden; position: relative;
+  background: linear-gradient(155deg, var(--cream-2) 0%, var(--cream) 100%);
+  display: flex; align-items: center; justify-content: center;
+}
+.model-card-media img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform 0.8s var(--ease-out); }
+.model-card:hover .model-card-media img { transform: scale(1.06); }
+.model-card-media .model-soon {
+  position: absolute; bottom: 10px; left: 10px; right: 10px; z-index: 1;
+  background: rgba(27,31,23,0.72); backdrop-filter: blur(3px);
+  padding: 6px 8px;
+  font-size: 9px; letter-spacing: 2px; text-transform: uppercase; text-align: center;
+  color: var(--gold-light); font-weight: 600;
+}
+.model-card-body { padding: 22px 20px 24px; }
+.model-name { font-family: var(--font-serif); font-size: 21px; font-weight: 400; color: var(--text-dark); line-height: 1.15; }
+.model-meta { font-size: 10.5px; letter-spacing: 1px; color: var(--gold-dark); font-weight: 600; margin: 6px 0 14px; text-transform: uppercase; }
+.model-feats { display: flex; flex-wrap: wrap; gap: 7px 12px; margin-bottom: 6px; }
+.model-feat { font-size: 11.5px; color: var(--text-mid); display: flex; align-items: center; gap: 5px; }
+.model-feat svg { width: 13px; height: 13px; color: var(--sage); flex-shrink: 0; }
+.model-link {
+  display: inline-flex; align-items: center; gap: 5px; margin-top: 14px;
+  font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; color: var(--gold-dark);
+  transition: color 0.3s;
+}
+.model-link:hover { color: var(--gold); }
+
+.interior-duo { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; margin-top: 64px; }
+.interior-duo img { width: 100%; height: 360px; object-fit: cover; display: block; }
+
+.dev-cta { text-align: center; margin-top: 56px; }
+
+/* =============================================
+   AMENITIES  — WHITE section
+============================================= */
+#amenities { padding: 120px 0; background: var(--dark-3); }
+#amenities .section-title { color: var(--white); }
+#amenities .section-lead  { color: var(--text-muted); }
+
+.amenities-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; margin-top: 68px; }
+.amenity-card {
+  background: var(--cream); padding: 44px 28px;
+  border: 1px solid rgba(185,154,91,0.1);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  transition: border-color 0.4s, box-shadow 0.4s, transform 0.4s var(--ease-out);
+  position: relative; overflow: hidden;
+}
+.amenity-card::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+  height: 2px; background: var(--gold);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.4s var(--ease-out);
+}
+.amenity-card:hover {
+  border-color: rgba(185,154,91,0.3);
+  box-shadow: 0 8px 36px rgba(0,0,0,0.09);
+  transform: translateY(-5px);
+}
+.amenity-card:hover::after { transform: scaleX(1); }
+
+.amenity-icon { width: 46px; height: 46px; margin-bottom: 20px; color: var(--gold); }
+.amenity-icon svg { width: 100%; height: 100%; }
+.amenity-name { font-family: var(--font-serif); font-size: 18px; font-weight: 400; color: var(--text-dark); margin-bottom: 10px; }
+.amenity-desc { font-size: 13px; color: var(--text-mid); line-height: 1.75; font-weight: 300; }
+
+/* =============================================
+   EXPERIENCE BAND  — GOLD
+============================================= */
+#experience { padding: 96px 0; background: var(--gold); position: relative; overflow: hidden; }
+#experience::before {
+  content: 'PUNTO LEÓN';
+  position: absolute; font-family: var(--font-serif);
+  font-size: clamp(90px,16vw,200px); font-weight: 600;
+  color: rgba(0,0,0,0.055); white-space: nowrap;
+  top: 50%; left: 50%; transform: translate(-50%,-50%);
+  letter-spacing: 8px; pointer-events: none;
+}
+.exp-inner { display: flex; align-items: center; justify-content: space-between; gap: 60px; flex-wrap: wrap; }
+.exp-left { flex: 1; min-width: 280px; }
+.exp-left .section-tag { color: rgba(0,0,0,0.45); }
+.exp-left .section-tag::before, .exp-left .section-tag::after { background: rgba(0,0,0,0.25); }
+.exp-tagline { font-family: var(--font-serif); font-size: clamp(30px,4vw,52px); font-weight: 300; color: var(--black); line-height: 1.15; margin-top: 8px; }
+.exp-tagline em { font-style: italic; }
+.exp-stats { display: flex; gap: 52px; flex-wrap: wrap; }
+.exp-stat { text-align: center; }
+.exp-stat strong { display: block; font-family: var(--font-serif); font-size: 46px; font-weight: 300; color: var(--black); line-height: 1; margin-bottom: 6px; }
+.exp-stat span { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: rgba(0,0,0,0.5); font-weight: 600; }
+
+/* =============================================
+   TOURS 3D  — DARK, recorridos Matterport
+============================================= */
+#tours { padding: 120px 0; background: var(--dark); }
+#tours .section-title { color: var(--white); }
+#tours .section-lead  { color: var(--text-muted); }
+
+.tours-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 68px; }
+.tour-card { background: var(--dark-3); border: 1px solid var(--border-d); overflow: hidden; }
+.tour-frame { aspect-ratio: 4/3; position: relative; }
+.tour-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.tour-body { padding: 20px 22px 24px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.tour-name { font-family: var(--font-serif); font-size: 18px; font-weight: 400; color: var(--white); }
+.tour-open {
+  flex-shrink: 0; display: inline-flex; align-items: center; gap: 6px;
+  font-size: 9.5px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600;
+  color: var(--gold); transition: color 0.3s;
+}
+.tour-open:hover { color: var(--gold-light); }
+.tour-open svg { width: 12px; height: 12px; }
+
+/* =============================================
+   LOCATION  — patrón reutilizado dentro de Tracia / Privanzas
+============================================= */
+.location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+
+.map-box {
+  width: 100%; aspect-ratio: 4/3;
+  background: #EDE8DF; border: 1px solid rgba(185,154,91,0.2);
+  position: relative; overflow: hidden;
+}
+.map-box iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; filter: grayscale(18%) contrast(1.02); }
+.map-badge {
+  position: absolute; bottom: 14px; left: 14px; z-index: 1;
+  display: flex; align-items: center; gap: 8px;
+  background: rgba(250,246,236,0.94); backdrop-filter: blur(6px);
+  border: 1px solid rgba(185,154,91,0.25);
+  padding: 8px 14px; pointer-events: none;
+}
+.map-badge svg { width: 16px; height: 16px; color: var(--gold-dark); flex-shrink: 0; }
+.map-badge span { font-family: var(--font-serif); font-size: 14px; color: var(--text-dark); letter-spacing: 0.5px; }
+
+.location-info .section-tag { color: var(--gold); }
+.location-title { font-family: var(--font-serif); font-size: clamp(24px,3.2vw,42px); font-weight: 300; color: var(--text-dark); margin-bottom: 20px; line-height: 1.15; }
+.location-title em { font-style: italic; color: var(--gold); }
+.location-text { font-size: 15px; color: var(--text-mid); line-height: 1.85; margin-bottom: 34px; font-weight: 300; }
+.location-details { display: flex; flex-direction: column; }
+.loc-detail { display: flex; align-items: flex-start; gap: 14px; padding: 18px 0; border-bottom: 1px solid rgba(0,0,0,0.08); }
+.loc-detail:last-child { border-bottom: none; }
+.loc-detail svg { width: 18px; height: 18px; color: var(--gold); flex-shrink: 0; margin-top: 2px; }
+.loc-label { display: block; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-dark); font-weight: 600; margin-bottom: 4px; }
+.loc-val { font-size: 14px; color: var(--text-mid); line-height: 1.7; }
+
+/* =============================================
+   PROCESO DE COMPRA  — CREAM
+============================================= */
+#proceso { padding: 120px 0; background: var(--cream-2); }
+#proceso .section-title { color: var(--text-dark); }
+#proceso .section-lead  { color: var(--text-mid); }
+
+.steps-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 3px; }
+.step-card {
+  background: var(--white);
+  padding: 40px 30px;
+  border: 1px solid rgba(185,154,91,0.12);
+  position: relative; overflow: hidden;
+  transition: box-shadow 0.4s, transform 0.4s var(--ease-out);
+}
+.step-card::before {
+  content: attr(data-step);
+  position: absolute; top: -14px; right: 14px;
+  font-family: var(--font-serif); font-size: 90px; font-weight: 600;
+  color: rgba(185,154,91,0.1); line-height: 1; pointer-events: none;
+}
+.step-card:hover { box-shadow: 0 14px 52px rgba(0,0,0,0.1); transform: translateY(-5px); }
+.step-icon { width: 36px; height: 36px; color: var(--gold); margin-bottom: 20px; }
+.step-icon svg { width: 100%; height: 100%; }
+.step-name { font-family: var(--font-serif); font-size: 19px; font-weight: 400; color: var(--text-dark); margin-bottom: 10px; }
+.step-desc { font-size: 13px; color: var(--text-mid); line-height: 1.75; font-weight: 300; }
+.btn-ghost-dark {
+  display: inline-block; padding: 14px 40px;
+  border: 1px solid rgba(0,0,0,0.18);
+  color: var(--text-dark); font-size: 10px; letter-spacing: 3px;
+  text-transform: uppercase; font-weight: 400;
+  font-family: var(--font-sans);
+  transition: border-color 0.3s, color 0.3s;
+}
+.btn-ghost-dark:hover { border-color: var(--gold); color: var(--gold-dark); }
+
+/* =============================================
+   CONTACT  — DARK
+============================================= */
+#contact { padding: 120px 0; background: var(--dark-2); position: relative; overflow: hidden; }
+#contact::before {
+  content: ''; position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(185,154,91,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.contact-left .section-tag { justify-content: flex-start; }
+.contact-left .section-tag::before { display: none; }
+.contact-title { font-family: var(--font-serif); font-size: clamp(24px,3.2vw,42px); font-weight: 300; color: var(--white); margin-bottom: 12px; line-height: 1.2; }
+.contact-title em { font-style: italic; color: var(--gold); }
+.contact-sub { font-size: 14px; color: var(--text-muted); margin-bottom: 38px; line-height: 1.8; font-weight: 300; }
+
+#booking-form { display: flex; flex-direction: column; gap: 16px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.form-group { display: flex; flex-direction: column; gap: 7px; }
+.form-group label { font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); font-weight: 500; }
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: transparent; border: 1px solid var(--border-d);
+  padding: 13px 16px; color: var(--white);
+  font-family: var(--font-sans); font-size: 14px; font-weight: 300;
+  outline: none; -webkit-appearance: none; appearance: none; border-radius: 0;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.form-group select { background: var(--dark-3); cursor: pointer; }
+.form-group select option { background: var(--dark-3); color: var(--white); }
+.form-group input::placeholder, .form-group textarea::placeholder { color: var(--text-dim); }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(185,154,91,0.1); }
+.form-group input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(1) opacity(0.35); cursor: pointer; }
+.form-group textarea { resize: vertical; min-height: 90px; }
+
+.form-submit {
+  margin-top: 6px; width: 100%; padding: 17px;
+  background: var(--gold); color: var(--black);
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  font-weight: 600; font-family: var(--font-sans);
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+.form-submit:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 12px 36px rgba(185,154,91,0.25); }
+
+.contact-right .section-tag { justify-content: flex-start; }
+.contact-right .section-tag::before { display: none; }
+.channels { display: flex; flex-direction: column; gap: 2px; margin-top: 30px; }
+.channel {
+  display: flex; align-items: center; gap: 16px; padding: 20px 22px;
+  background: var(--dark-3); border: 1px solid transparent;
+  transition: border-color 0.3s, background 0.3s; cursor: pointer;
+}
+.channel:hover { border-color: var(--border-d); background: rgba(185,154,91,0.04); }
+.ch-icon { width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; background: var(--gold-subtle); border: 1px solid var(--border-d); flex-shrink: 0; color: var(--gold); }
+.ch-icon svg { width: 18px; height: 18px; }
+.ch-info strong { display: block; font-size: 13px; font-weight: 500; color: var(--white); margin-bottom: 3px; }
+.ch-info span { font-size: 12px; color: var(--text-muted); }
+.ch-arrow { margin-left: auto; color: var(--text-dim); transition: color 0.3s, transform 0.3s; flex-shrink: 0; }
+.channel:hover .ch-arrow { color: var(--gold); transform: translateX(4px); }
+
+.contact-quote { margin-top: 28px; padding: 24px; border: 1px solid var(--border-d); background: var(--gold-subtle); }
+.contact-quote p { font-family: var(--font-serif); font-size: 17px; font-style: italic; color: rgba(255,255,255,0.85); line-height: 1.75; text-align: center; }
+.contact-quote cite { display: block; margin-top: 10px; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); font-style: normal; text-align: center; }
+
+/* =============================================
+   FOOTER
+============================================= */
+footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid var(--border-d); }
+.footer-top { display: flex; justify-content: space-between; gap: 56px; flex-wrap: wrap; padding-bottom: 52px; border-bottom: 1px solid var(--border-d); margin-bottom: 32px; }
+.footer-brand { max-width: 270px; }
+.footer-logo-wrap { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+.footer-logo-pill { display: flex; align-items: center; }
+.footer-logo-pill img { height: 54px; width: auto; filter: drop-shadow(0 0 10px rgba(185,154,91,0.3)); }
+.footer-logo-text strong { display: block; font-family: var(--font-serif); font-size: 14px; font-weight: 600; color: var(--white); letter-spacing: 2px; text-transform: uppercase; }
+.footer-logo-text small { font-size: 8px; letter-spacing: 3.5px; color: var(--gold); text-transform: uppercase; }
+.footer-brand p { font-size: 13px; color: var(--text-dim); line-height: 1.8; font-weight: 300; }
+.footer-col h4 { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; font-weight: 500; }
+.footer-col ul { display: flex; flex-direction: column; gap: 9px; }
+.footer-col ul a { font-size: 13px; color: var(--text-dim); transition: color 0.3s; font-weight: 300; }
+.footer-col ul a:hover { color: var(--white); }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.footer-bottom p { font-size: 11px; color: var(--text-dim); }
+.social-links { display: flex; gap: 10px; }
+.social-link { width: 32px; height: 32px; border: 1px solid var(--border-d); display: flex; align-items: center; justify-content: center; color: var(--text-dim); transition: border-color 0.3s, color 0.3s; }
+.social-link:hover { border-color: var(--gold); color: var(--gold); }
+.social-link svg { width: 13px; height: 13px; }
+
+/* =============================================
+   WHATSAPP FLOAT
+============================================= */
+#wa-float {
+  position: fixed; bottom: 26px; right: 22px; z-index: 900;
+  width: 58px; height: 58px; background: #25D366; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 22px rgba(37,211,102,0.4);
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s;
+}
+#wa-float:hover { transform: scale(1.1) translateY(-3px); box-shadow: 0 8px 32px rgba(37,211,102,0.55); }
+#wa-float svg { width: 28px; height: 28px; fill: white; position: relative; z-index: 1; }
+.wa-ring { position: absolute; inset: -5px; border-radius: 50%; background: rgba(37,211,102,0.22); animation: waRing 2.5s ease-in-out infinite; }
+.wa-ring-2 { position: absolute; inset: -12px; border-radius: 50%; background: rgba(37,211,102,0.1); animation: waRing 2.5s ease-in-out 0.65s infinite; }
+@keyframes waRing { 0%,100%{transform:scale(1);opacity:0.7;} 50%{transform:scale(1.18);opacity:0;} }
+
+/* =============================================
+   SCROLL REVEAL
+============================================= */
+.reveal { opacity:0; transform:translateY(28px); transition:opacity 0.85s var(--ease-out), transform 0.85s var(--ease-out); }
+.reveal.visible { opacity:1; transform:translateY(0); }
+.d1 { transition-delay:0.1s; }
+.d2 { transition-delay:0.2s; }
+.d3 { transition-delay:0.3s; }
+.d4 { transition-delay:0.4s; }
+
+/* =============================================
+   RESPONSIVE
+============================================= */
+@media (max-width: 1024px) {
+  .rooms-grid, .frac-grid { grid-template-columns: 1fr 1fr; }
+  .model-grid-4 { grid-template-columns: repeat(2,1fr); }
+  .amenities-grid { grid-template-columns: repeat(2,1fr); }
+  .steps-grid { grid-template-columns: 1fr 1fr; }
+  .contact-grid { grid-template-columns: 1fr; gap: 52px; }
+  .location-grid { grid-template-columns: 1fr; gap: 44px; }
+  .model-grid { grid-template-columns: repeat(2,1fr); }
+  .tours-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .nav-links, .nav-cta { display: none; }
+  .nav-ham { display: flex; }
+  .about-grid, .location-grid { grid-template-columns: 1fr; gap: 48px; }
+  .about-badge { top: 14px; right: 14px; }
+  .rooms-grid, .frac-grid, .frac-grid.cols-2 { grid-template-columns: 1fr; }
+  .model-grid-4, .model-grid { grid-template-columns: 1fr; }
+  .interior-duo { grid-template-columns: 1fr; }
+  .amenities-grid { grid-template-columns: 1fr 1fr; }
+  .steps-grid { grid-template-columns: 1fr; }
+  .exp-inner { flex-direction: column; gap: 36px; }
+  .form-row { grid-template-columns: 1fr; }
+  .footer-top { flex-direction: column; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+}
+@media (max-width: 480px) {
+  .amenities-grid { grid-template-columns: 1fr; }
+  .hero-actions { flex-direction: column; align-items: stretch; }
+  .btn-primary, .btn-ghost { text-align: center; padding: 15px; }
+  .about-stats { gap: 18px; }
+  .exp-stats { gap: 36px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ LOADER ============ -->
+<div id="loader" role="status" aria-label="Cargando Punto León Inmobiliaria">
+  <div class="loader-logo-wrap">
+    <img src="imagenes/logo.png" alt="Punto León Inmobiliaria">
+  </div>
+  <p class="loader-tag">Inmobiliaria en León, Gto.</p>
+  <div class="loader-progress"><div class="loader-progress-fill"></div></div>
+</div>
+
+<!-- ============ MOBILE MENU ============ -->
+<div id="mobile-menu" role="dialog" aria-label="Menú principal">
+  <div class="mob-logo">
+    <div class="mob-logo-pill">
+      <img src="imagenes/logo.png" alt="Punto León Inmobiliaria" height="80">
+    </div>
+  </div>
+  <a href="#about"            onclick="closeMob()">Nosotros</a>
+  <a href="#fraccionamientos" onclick="closeMob()">Fraccionamientos</a>
+  <a href="#amenities"        onclick="closeMob()">Por qué elegirnos</a>
+  <a href="#tours"            onclick="closeMob()">Tours 3D</a>
+  <a href="#contact"          onclick="closeMob()">Contacto</a>
+</div>
+
+<!-- ============ NAV ============ -->
+<nav id="nav" role="navigation" aria-label="Navegación principal">
+  <a href="#" class="nav-logo" aria-label="Punto León Inmobiliaria - Inicio">
+    <div class="nav-logo-pill">
+      <img src="imagenes/logo.png" alt="Logo Punto León Inmobiliaria" class="nav-logo-img">
+    </div>
+    <div class="nav-logo-text">
+      <strong>Punto León</strong>
+      <small>León, Guanajuato</small>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">Nosotros</a></li>
+    <li><a href="#fraccionamientos">Fraccionamientos</a></li>
+    <li><a href="#amenities">Por qué elegirnos</a></li>
+    <li><a href="#tours">Tours 3D</a></li>
+    <li><a href="#proceso">Proceso</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Agenda tu Visita</a>
+  <button class="nav-ham" id="ham" aria-label="Abrir menú" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section id="hero" aria-label="Punto León Inmobiliaria — Casas en León, Guanajuato">
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+  <div class="hero-ring ring-1" aria-hidden="true"></div>
+  <div class="hero-ring ring-2" aria-hidden="true"></div>
+  <div class="hero-ring ring-3" aria-hidden="true"></div>
+  <div class="hero-flash" aria-hidden="true"></div>
+  <div class="hero-glow-pulse" aria-hidden="true"></div>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow">Punto León Inmobiliaria · León, Guanajuato</p>
+    <h1 class="hero-title">Tu Punto<br>de <em>Partida</em></h1>
+    <p class="hero-subtitle">
+      Un hogar pensado para tu&nbsp;<span id="typer" class="typer-word"></span><span class="typer-cursor" aria-hidden="true"></span>
+    </p>
+    <p class="hero-desc">4 fraccionamientos en las mejores zonas de León. Casas nuevas con casa club, acceso controlado y la asesoría personalizada que tu familia merece.</p>
+    <div class="hero-actions">
+      <a href="#contact"          class="btn-primary">Agenda tu Visita</a>
+      <a href="#fraccionamientos" class="btn-ghost">Ver Fraccionamientos</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll" aria-hidden="true">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ============ ABOUT — CREAM ============ -->
+<section id="about">
+  <div class="container" style="padding:120px 0;">
+    <div class="about-grid">
+      <div class="about-visual reveal">
+        <img
+          src="imagenes/tracia-fachada-modelo-stella.jpg"
+          alt="Fachada de residencia moderna en fraccionamiento Punto León León Guanajuato"
+          class="about-img"
+          loading="lazy">
+        <div class="about-badge">
+          <strong>4</strong>
+          <span>Fraccionamientos en León</span>
+        </div>
+      </div>
+      <div class="about-content">
+        <p class="section-tag no-lines reveal">Quiénes Somos</p>
+        <h2 class="about-title reveal d1">Tu aliado para encontrar<br>el hogar <em>correcto</em></h2>
+        <p class="about-text reveal d2">En Punto León Inmobiliaria te acompañamos en cada paso del camino hacia tu nueva casa. Concentramos en un solo lugar los mejores desarrollos de León — con distintos estilos de vida, tamaños de terreno y presupuestos — para que elijas con toda la información y ningún dolor de cabeza.</p>
+        <p class="about-text reveal d2">Trabajamos de la mano con desarrollos de alta plusvalía, acceso controlado y áreas comunes pensadas para familias: casa club, seguridad y espacios verdes, en zonas estratégicas de la ciudad.</p>
+        <div class="about-stats reveal d3">
+          <div class="about-stat">
+            <strong>4</strong>
+            <span>Fraccionamientos</span>
+          </div>
+          <div class="about-stat">
+            <strong>7+</strong>
+            <span>Modelos de casa</span>
+          </div>
+          <div class="about-stat">
+            <strong>100%</strong>
+            <span>Asesoría personalizada</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FRACCIONAMIENTOS — DARK ============ -->
+<section id="fraccionamientos" aria-labelledby="frac-title">
+  <div class="container" style="padding:120px 0;">
+    <div class="section-header">
+      <p class="section-tag reveal">Nuestros Desarrollos</p>
+      <h2 class="section-title reveal d1" id="frac-title" style="color:var(--white);">4 Fraccionamientos,<br>un solo <em>Punto León</em></h2>
+      <p class="section-lead reveal d2" style="color:var(--text-muted);">Te presentamos 2 de nuestros desarrollos disponibles en León — conócelos a detalle y pregúntanos por los demás.</p>
+    </div>
+    <div class="frac-grid cols-2">
+
+      <!-- Tracia Residencial -->
+      <article class="room-card reveal">
+        <div class="room-card-inner">
+          <img
+            src="imagenes/tracia-hero-alberca-atardecer.jpg"
+            alt="Alberca y terraza de Tracia Residencial en San Carlos, León"
+            class="room-card-img"
+            loading="lazy">
+          <div class="room-overlay"></div>
+          <div class="room-pills">
+            <span class="room-pill">Casa Club</span>
+            <span class="room-pill">4 Modelos</span>
+          </div>
+          <div class="room-content">
+            <p class="room-tag">San Carlos, León</p>
+            <h3 class="room-name">Tracia<br>Residencial</h3>
+            <p class="room-desc">5 secciones privadas, casa club y alberca. Cerca de Vía Alta, Altacia y el Aeropuerto del Bajío.</p>
+            <a href="#tracia" class="room-cta">Ver fraccionamiento →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Privanzas -->
+      <article class="room-card reveal d1">
+        <div class="room-card-inner">
+          <img
+            src="imagenes/privanzas-sala-comedor.jpg"
+            alt="Sala y comedor de residencia en Privanzas, León"
+            class="room-card-img"
+            loading="lazy">
+          <div class="room-overlay"></div>
+          <div class="room-pills">
+            <span class="room-pill">Acabados de Lujo</span>
+            <span class="room-pill">3 Modelos</span>
+          </div>
+          <div class="room-content">
+            <p class="room-tag">Blvd. Juan Alonso de Torres</p>
+            <h3 class="room-name">Privanzas</h3>
+            <p class="room-desc">Arquitectura vanguardista de 6, 7 y 8 m de frente. A minutos de Walmart Punta del Este y la Ibero León.</p>
+            <a href="#privanzas" class="room-cta">Ver fraccionamiento →</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+    <div class="dev-cta reveal">
+      <a href="#contact" class="btn-ghost">Pregunta por nuestros otros 2 fraccionamientos →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRACIA RESIDENCIAL — CREAM-2 ============ -->
+<section id="tracia" aria-labelledby="tracia-title">
+  <div class="container" style="padding:120px 0;">
+    <div class="section-header">
+      <p class="section-tag reveal">Tracia Residencial</p>
+      <h2 class="section-title reveal d1" id="tracia-title" style="color:var(--text-dark);">Vive en <em>San Carlos</em></h2>
+      <p class="section-lead reveal d2" style="color:var(--text-mid);">Un desarrollo planeado en 5 secciones privadas con casa club, acceso controlado y alta plusvalía, desarrollado por CTU — Empresa Socialmente Responsable.</p>
+    </div>
+
+    <div class="location-grid reveal">
+      <div class="about-visual" style="position:static;">
+        <div class="map-box">
+          <iframe src="https://www.google.com/maps?q=Blvd.+V%C3%ADa+Cavalieri+102,+San+Carlos,+Le%C3%B3n,+Guanajuato&output=embed" loading="lazy" title="Mapa de ubicación de Tracia Residencial, San Carlos, León"></iframe>
+          <div class="map-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>San Carlos, León, Gto.</span>
+          </div>
+        </div>
+      </div>
+      <div class="location-info">
+        <p class="section-tag no-lines">Ubicación Privilegiada</p>
+        <h3 class="location-title">Cerca de todo lo que <em>importa</em></h3>
+        <p class="location-text">Blvd. Vía Cavalieri #102, San Carlos, León, Gto. — a minutos de Vía Alta, Zona Outlets, Altacia y Centro Max, con acceso directo a universidades, hospitales, Puerto Interior, el Aeropuerto Internacional del Bajío y el Parque Industrial Delta.</p>
+        <div class="location-details">
+          <div class="loc-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <div><span class="loc-label">Seguridad</span><span class="loc-val">Acceso controlado, malla electrificada y caseta de vigilancia</span></div>
+          </div>
+          <div class="loc-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+            <div><span class="loc-label">Desarrollo</span><span class="loc-val">5 secciones privadas con áreas verdes y lotes con excedente</span></div>
+          </div>
+          <div class="loc-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            <div><span class="loc-label">Casa Club</span><span class="loc-val">Alberca, gimnasio, salón de usos múltiples, outdoor kitchen, cancha de fútbol y área de juegos</span></div>
+          </div>
+          <div class="loc-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M5 17a2 2 0 002 2h1a2 2 0 002-2M5 17V9l2-5h10l2 5v8M17 17a2 2 0 002 2h1a2 2 0 002-2"/></svg>
+            <div><span class="loc-label">Estacionamiento de Visitas</span><span class="loc-val">14 cajones disponibles en Casa Club</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-header" style="margin-top:96px;">
+      <p class="section-tag reveal">Modelos de Casa</p>
+      <h2 class="section-title reveal d1" style="color:var(--text-dark);">Elige el <em>tuyo</em></h2>
+      <p class="section-lead reveal d2" style="color:var(--text-mid);">Cuatro distribuciones para distintas etapas de tu vida, todas con cochera para 2 autos.</p>
+    </div>
+
+    <div class="model-grid-4 reveal">
+      <article class="model-card">
+        <div class="model-card-media">
+          <img src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?auto=format&fit=crop&w=800&q=75" alt="Imagen ilustrativa de fachada moderna, estilo similar al Modelo Bari" loading="lazy">
+          <span class="model-soon">Imagen ilustrativa</span>
+        </div>
+        <div class="model-card-body">
+          <h3 class="model-name">Bari</h3>
+          <p class="model-meta">87.5 m² terreno · 107.63 m² construcción</p>
+          <div class="model-feats">
+            <span class="model-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>2 Autos</span>
+            <span class="model-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>2 1/2 Baños</span>
+            <span class="model-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>2 Recámaras (op. 3)</span>
+            <span class="model-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Patio / Jardín</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="model-card">
+        <div class="model-card-media">
+          <img src="imagenes/tracia-ficha-modelo-libia.jpg" alt="Ficha técnica Modelo Libia, Tracia Residencial" loading="lazy">
+        </div>
+        <div class="model-card-body">
+          <h3 class="model-name">Libia</h3>
+          <p class="model-meta">87.5 m² terreno · 100.05 m² construcción</p>
+          <div class="model-feats">
+            <span class="model-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>2 Autos</span>
+            <span class="model-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>2 Baños Completos</span>
+            <span class="model-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>2 Recámaras (op. 3ra)</span>
+            <span class="model-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Patio / Jardín</span>
+          </div>
+          <a href="imagenes/tracia-ficha-modelo-libia.jpg" target="_blank" rel="noopener" class="model-link">Ver ficha técnica →</a>
+        </div>
+      </article>
+
+      <article class="model-card">
+        <div class="model-card-media">
+          <img src="imagenes/tracia-ficha-modelo-maritsa.jpg" alt="Ficha técnica Modelo Maritsa, Tracia Residencial" loading="lazy">
+        </div>
+        <div class="model-card-body">
+          <h3 class="model-name">Maritsa</h3>
+          <p class="model-meta">87.5 m² terreno · 100.05 m² construcción</p>
+          <div class="model-feats">
+            <span class="model-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>2 Autos</span>
+            <span class="model-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>2 Baños Completos</span>
+            <span class="model-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>2 Recámaras</span>
+            <span class="model-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Terraza Techada</span>
+          </div>
+          <a href="imagenes/tracia-ficha-modelo-maritsa.jpg" target="_blank" rel="noopener" class="model-link">Ver ficha técnica →</a>
+        </div>
+      </article>
+
+      <article class="model-card">
+        <div class="model-card-media">
+          <img src="imagenes/tracia-ficha-modelo-stella.jpg" alt="Ficha técnica Modelo Stella, Tracia Residencial" loading="lazy">
+        </div>
+        <div class="model-card-body">
+          <h3 class="model-name">Stella</h3>
+          <p class="model-meta">105 m² terreno · 139.7 m² construcción</p>
+          <div class="model-feats">
+            <span class="model-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>2 Autos</span>
+            <span class="model-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>2 1/2 Baños</span>
+            <span class="model-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>3 Recámaras</span>
+            <span class="model-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Balcón</span>
+          </div>
+          <a href="imagenes/tracia-ficha-modelo-stella.jpg" target="_blank" rel="noopener" class="model-link">Ver ficha técnica →</a>
+        </div>
+      </article>
+    </div>
+
+    <div class="dev-cta reveal">
+      <a href="#contact" class="btn-primary" data-frac="Tracia Residencial">Quiero Información de Tracia</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRIVANZAS — WHITE ============ -->
+<section id="privanzas" aria-labelledby="privanzas-title">
+  <div class="container" style="padding:120px 0;">
+    <div class="section-header">
+      <p class="section-tag reveal">Privanzas</p>
+      <h2 class="section-title reveal d1" id="privanzas-title" style="color:var(--text-dark);">Diseñadas con <em>excelencia</em></h2>
+      <p class="section-lead reveal d2" style="color:var(--text-mid);">Arquitectura vanguardista y distribución óptima, a minutos de las mejores plazas, colegios y hospitales de León.</p>
+    </div>
+
+    <div class="location-grid reveal">
+      <div class="about-visual" style="position:static;">
+        <div class="map-box">
+          <iframe src="https://www.google.com/maps?q=Blvd.+Juan+Alonso+de+Torres,+Le%C3%B3n,+Guanajuato&output=embed" loading="lazy" title="Mapa de ubicación de Privanzas, León"></iframe>
+          <div class="map-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>León, Gto.</span>
+          </div>
+        </div>
+      </div>
+      <div class="location-info">
+        <p class="section-tag no-lines">Ubicación Privilegiada</p>
+        <h3 class="location-title">Todo tu día a día, <em>cerca</em></h3>
+        <p class="location-text">A un costado del Blvd. Juan Alonso de Torres y Camino a Alfaro, León, Gto. — rodeado de plazas comerciales, colegios, universidades y hospitales de primer nivel.</p>
+        <div class="location-details">
+          <div class="loc-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+            <div><span class="loc-label">Plazas y Supermercados</span><span class="loc-val">Walmart Punta del Este, Soriana Maravillas, Plaza Nogal y Oxxo Esperanza</span></div>
+          </div>
+          <div class="loc-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg>
+            <div><span class="loc-label">Educación</span><span class="loc-val">Universidad Iberoamericana León, Instituto Lux, Instituto América, Colegio SuBiré y Colegio Monclair</span></div>
+          </div>
+          <div class="loc-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-1.5 3-3.5 3-6a4 4 0 00-7-2.7A4 4 0 008 7.3c0 2.5 1.5 4.5 3 6l4 4z"/><path d="M12 21v-8M9 15h6"/></svg>
+            <div><span class="loc-label">Salud</span><span class="loc-val">Hospital Christus Muguerza, Hospital Pediátrico León y Hospital General No. 58 IMSS</span></div>
+          </div>
+          <div class="loc-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
+            <div><span class="loc-label">Estilo de Vida</span><span class="loc-val">Gimnasio Studio Fitness y Templo de San Patricio a unos pasos</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-header" style="margin-top:96px;">
+      <p class="section-tag reveal">Modelos de Casa</p>
+      <h2 class="section-title reveal d1" style="color:var(--text-dark);">Tres formas de <em>vivir bien</em></h2>
+      <p class="section-lead reveal d2" style="color:var(--text-mid);">Con 6, 7 y 8 metros de frente: elige el tamaño que se ajuste a tu familia sin renunciar a los acabados de lujo.</p>
+    </div>
+
+    <div class="model-grid reveal">
+      <article class="model-card">
+        <div class="model-card-media">
+          <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=75" alt="Imagen ilustrativa de fachada moderna, estilo similar al Modelo Bianca" loading="lazy">
+          <span class="model-soon">Imagen ilustrativa</span>
+        </div>
+        <div class="model-card-body">
+          <h3 class="model-name">Bianca <span style="color:var(--gold-dark);font-size:14px;">6M</span></h3>
+          <p class="model-meta">Terreno 6×17 m (105 m²) · Construcción 135.17 m²</p>
+          <div class="model-feats">
+            <span class="model-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>3 Recámaras</span>
+            <span class="model-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>2.5 Baños</span>
+            <span class="model-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Cochera 2 Autos</span>
+            <span class="model-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Vestidor</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="model-card">
+        <div class="model-card-media">
+          <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=75" alt="Imagen ilustrativa de fachada moderna, estilo similar al Modelo Martina" loading="lazy">
+          <span class="model-soon">Imagen ilustrativa</span>
+        </div>
+        <div class="model-card-body">
+          <h3 class="model-name">Martina <span style="color:var(--gold-dark);font-size:14px;">7M</span></h3>
+          <p class="model-meta">Terreno 7×17 m (119 m²) · Construcción 160.02 m²</p>
+          <div class="model-feats">
+            <span class="model-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>3 Recámaras</span>
+            <span class="model-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>2.5 Baños</span>
+            <span class="model-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Cochera 2 Autos</span>
+            <span class="model-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Vestidor</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="model-card">
+        <div class="model-card-media">
+          <img src="imagenes/privanzas-ficha-modelo-vittoria.jpg" alt="Ficha técnica Modelo Vittoria, Privanzas" loading="lazy">
+        </div>
+        <div class="model-card-body">
+          <h3 class="model-name">Vittoria <span style="color:var(--gold-dark);font-size:14px;">8M</span></h3>
+          <p class="model-meta">Terreno 8×17 m (136 m²) · Construcción 176.95 m²</p>
+          <div class="model-feats">
+            <span class="model-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>3 Recámaras</span>
+            <span class="model-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>3.5 Baños</span>
+            <span class="model-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Cochera 2 Autos</span>
+            <span class="model-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Vestidor</span>
+          </div>
+          <a href="imagenes/privanzas-ficha-modelo-vittoria.jpg" target="_blank" rel="noopener" class="model-link">Ver ficha técnica →</a>
+        </div>
+      </article>
+    </div>
+
+    <div class="interior-duo reveal">
+      <img src="imagenes/privanzas-recamara-principal.jpg" alt="Recámara principal amueblada en Privanzas, León" loading="lazy">
+      <img src="imagenes/privanzas-comedor-detalle.jpg" alt="Detalle de comedor y acabados en Privanzas, León" loading="lazy">
+    </div>
+
+    <div class="dev-cta reveal">
+      <a href="#contact" class="btn-primary" data-frac="Privanzas">Quiero Información de Privanzas</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AMENITIES — WHITE ============ -->
+<section id="amenities" aria-labelledby="amenities-title">
+  <div class="container" style="padding:120px 0;">
+    <div class="section-header">
+      <p class="section-tag reveal">Ventajas</p>
+      <h2 class="section-title reveal d1" id="amenities-title">Por qué elegir <em>Punto León</em></h2>
+      <p class="section-lead reveal d2">Ocho razones por las que familias en León confían en nosotros para encontrar su próximo hogar.</p>
+    </div>
+    <div class="amenities-grid">
+      <div class="amenity-card reveal">
+        <div class="amenity-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <h3 class="amenity-name">Ubicación Estratégica</h3>
+        <p class="amenity-desc">Fraccionamientos en las zonas de mayor crecimiento y plusvalía de León, cerca de vialidades, plazas y hospitales.</p>
+      </div>
+      <div class="amenity-card reveal d1">
+        <div class="amenity-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3 class="amenity-name">Acceso Controlado</h3>
+        <p class="amenity-desc">Caseta de vigilancia, acceso restringido y protocolos de seguridad en cada desarrollo que manejamos.</p>
+      </div>
+      <div class="amenity-card reveal d2">
+        <div class="amenity-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <h3 class="amenity-name">Casa Club y Áreas Verdes</h3>
+        <p class="amenity-desc">Alberca, gimnasio, salón de usos múltiples y espacios pensados para el día a día en familia.</p>
+      </div>
+      <div class="amenity-card reveal d3">
+        <div class="amenity-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <h3 class="amenity-name">Asesoría Personalizada</h3>
+        <p class="amenity-desc">Te acompañamos desde la primera visita hasta la entrega de llaves, sin presiones y con toda la información clara.</p>
+      </div>
+      <div class="amenity-card reveal">
+        <div class="amenity-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><line x1="6" y1="15" x2="10" y2="15"/></svg></div>
+        <h3 class="amenity-name">Financiamiento a tu Medida</h3>
+        <p class="amenity-desc">Te orientamos con las mejores opciones de crédito bancario e Infonavit para concretar tu compra.</p>
+      </div>
+      <div class="amenity-card reveal d1">
+        <div class="amenity-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+        <h3 class="amenity-name">Alta Plusvalía</h3>
+        <p class="amenity-desc">Desarrollos en zonas de crecimiento comprobado en León, con potencial de inversión real a futuro.</p>
+      </div>
+      <div class="amenity-card reveal d2">
+        <div class="amenity-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <h3 class="amenity-name">Tours Virtuales 360°</h3>
+        <p class="amenity-desc">Recorre cada modelo desde tu celular o computadora con nuestros recorridos 3D interactivos.</p>
+      </div>
+      <div class="amenity-card reveal d3">
+        <div class="amenity-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
+        <h3 class="amenity-name">Atención Post-Venta</h3>
+        <p class="amenity-desc">Seguimos contigo después de la firma, resolviendo dudas y acompañándote en cada trámite.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPERIENCE BAND — GOLD ============ -->
+<section id="experience" aria-label="Nuestra promesa">
+  <div class="container" style="padding:96px 0;">
+    <div class="exp-inner">
+      <div class="exp-left reveal">
+        <p class="section-tag">Nuestra Promesa</p>
+        <h2 class="exp-tagline"><em>Más</em> que una casa,<br>el lugar donde construyes tu historia</h2>
+      </div>
+      <div class="exp-stats reveal d1">
+        <div class="exp-stat"><strong>4</strong><span>Fraccionamientos en León</span></div>
+        <div class="exp-stat"><strong>7+</strong><span>Modelos de casa</span></div>
+        <div class="exp-stat"><strong>100%</strong><span>Acompañamiento personalizado</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TOURS 3D — DARK ============ -->
+<section id="tours" aria-labelledby="tours-title">
+  <div class="container" style="padding:120px 0;">
+    <div class="section-header">
+      <p class="section-tag reveal">Recorridos Virtuales</p>
+      <h2 class="section-title reveal d1" id="tours-title">Camina la casa <em>antes de visitarla</em></h2>
+      <p class="section-lead reveal d2" style="color:var(--text-muted);">Explora nuestros modelos en 360° desde tu celular o computadora, muévete por cada espacio a tu ritmo.</p>
+    </div>
+    <div class="tours-grid reveal d1">
+
+      <div class="tour-card">
+        <div class="tour-frame">
+          <iframe src="https://my.matterport.com/show/?m=pf4vmKMyb7r" allowfullscreen loading="lazy" title="Recorrido virtual 360° Punto León 1"></iframe>
+        </div>
+        <div class="tour-body">
+          <h3 class="tour-name">Recorrido Virtual 1</h3>
+          <a href="https://my.matterport.com/show/?m=pf4vmKMyb7r" target="_blank" rel="noopener" class="tour-open">Pantalla completa <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </div>
+      </div>
+
+      <div class="tour-card">
+        <div class="tour-frame">
+          <iframe src="https://my.matterport.com/show/?m=DrsZTChMEdf" allowfullscreen loading="lazy" title="Recorrido virtual 360° Punto León 2"></iframe>
+        </div>
+        <div class="tour-body">
+          <h3 class="tour-name">Recorrido Virtual 2</h3>
+          <a href="https://my.matterport.com/show/?m=DrsZTChMEdf" target="_blank" rel="noopener" class="tour-open">Pantalla completa <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </div>
+      </div>
+
+      <div class="tour-card">
+        <div class="tour-frame">
+          <iframe src="https://my.matterport.com/show/?m=NnaayK2vfeP" allowfullscreen loading="lazy" title="Recorrido virtual 360° Punto León 3"></iframe>
+        </div>
+        <div class="tour-body">
+          <h3 class="tour-name">Recorrido Virtual 3</h3>
+          <a href="https://my.matterport.com/show/?m=NnaayK2vfeP" target="_blank" rel="noopener" class="tour-open">Pantalla completa <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIOS — CREAM ============ -->
+<section id="proceso" aria-labelledby="proceso-title">
+  <div class="container" style="padding:120px 0;">
+    <div class="section-header">
+      <p class="section-tag reveal">Proceso de Compra</p>
+      <h2 class="section-title reveal d1" id="proceso-title">Así de <em>simple</em> es</h2>
+      <p class="section-lead reveal d2" style="color:var(--text-mid);">Cuatro pasos entre tú y las llaves de tu nueva casa. Te acompañamos en cada uno.</p>
+    </div>
+    <div class="steps-grid reveal d1">
+
+      <div class="step-card" data-step="1">
+        <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <h3 class="step-name">Agenda tu Visita</h3>
+        <p class="step-desc">Escríbenos por WhatsApp o llena el formulario y coordinamos una visita a los fraccionamientos que te interesen.</p>
+      </div>
+
+      <div class="step-card" data-step="2">
+        <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg></div>
+        <h3 class="step-name">Conoce y Compara</h3>
+        <p class="step-desc">Recorre el fraccionamiento, la casa club y los modelos disponibles — en sitio o con nuestros tours 3D.</p>
+      </div>
+
+      <div class="step-card" data-step="3">
+        <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div>
+        <h3 class="step-name">Elige tu Financiamiento</h3>
+        <p class="step-desc">Te asesoramos sobre crédito bancario, Infonavit o pago directo, según lo que más te convenga.</p>
+      </div>
+
+      <div class="step-card" data-step="4">
+        <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <h3 class="step-name">Firma y Estrena</h3>
+        <p class="step-desc">Te acompañamos en el proceso legal y la escrituración hasta que recibas las llaves de tu nueva casa.</p>
+      </div>
+
+    </div>
+    <div style="text-align:center;margin-top:52px;" class="reveal">
+      <a href="#contact" class="btn-ghost-dark">Quiero empezar mi proceso →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT — DARK ============ -->
+<section id="contact" aria-labelledby="contact-title">
+  <div class="container" style="padding:120px 0;">
+    <div class="section-header">
+      <p class="section-tag reveal">Contacto</p>
+      <h2 class="section-title reveal d1" id="contact-title" style="color:var(--white);">Agenda tu <em>visita</em></h2>
+      <p class="section-lead reveal d2" style="color:var(--text-muted);">Completa el formulario y te contactamos vía WhatsApp para resolver tus dudas y agendar un recorrido.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-left reveal">
+        <p class="section-tag no-lines">Formulario de Contacto</p>
+        <h3 class="contact-title">Tu nuevo hogar <em>empieza</em><br>con una conversación</h3>
+        <p class="contact-sub">Cuéntanos qué buscas. Te respondemos en menos de 2 horas en horario hábil.</p>
+        <form id="booking-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nombre">Nombre completo</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required autocomplete="name">
+            </div>
+            <div class="form-group">
+              <label for="telefono">Teléfono / WhatsApp</label>
+              <input type="tel" id="telefono" name="telefono" placeholder="477 000 0000" required autocomplete="tel">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fraccionamiento">Fraccionamiento de interés</label>
+              <select id="fraccionamiento" name="fraccionamiento">
+                <option value="">Seleccionar...</option>
+                <option value="Tracia Residencial">Tracia Residencial</option>
+                <option value="Privanzas">Privanzas</option>
+                <option value="Aún no decido / quiero conocer los 4">Aún no decido / quiero conocer los 4</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="modelo">Modelo de interés (opcional)</label>
+              <input type="text" id="modelo" name="modelo" placeholder="Ej. Stella, Vittoria...">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="mensaje">Cuéntanos qué buscas</label>
+            <textarea id="mensaje" name="mensaje" placeholder="Presupuesto, número de recámaras, forma de pago..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">Enviar por WhatsApp →</button>
+        </form>
+      </div>
+      <div class="contact-right reveal d1">
+        <p class="section-tag no-lines">Otras Formas de Contacto</p>
+        <h3 class="contact-title">También <em>puedes</em><br>contactarnos así</h3>
+        <div class="channels">
+          <a href="https://wa.me/524771065137" target="_blank" rel="noopener" class="channel" aria-label="WhatsApp">
+            <div class="ch-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </div>
+            <div class="ch-info"><strong>WhatsApp</strong><span>477 106 5137 · Respuesta rápida</span></div>
+            <svg class="ch-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg>
+          </a>
+          <a href="tel:+524771065137" class="channel" aria-label="Llamada">
+            <div class="ch-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.86 9.8 19.79 19.79 0 01.79 1.1 2 2 0 012.77 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 8.77a16 16 0 006.29 6.29l1.13-1.13a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            </div>
+            <div class="ch-info"><strong>Llamada Directa</strong><span>477 106 5137 · Habla con nosotros</span></div>
+            <svg class="ch-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg>
+          </a>
+          <a href="mailto:inmobiliariapuntoleon@gmail.com" class="channel" aria-label="Correo electrónico">
+            <div class="ch-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z" opacity="0"/><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 6l10 7 10-7"/></svg>
+            </div>
+            <div class="ch-info"><strong>Correo Electrónico</strong><span>inmobiliariapuntoleon@gmail.com</span></div>
+            <svg class="ch-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg>
+          </a>
+        </div>
+        <div class="contact-quote">
+          <p>"Nos comprometemos a responder tu solicitud lo antes posible y hacer del proceso de compra algo simple y transparente."</p>
+          <cite>— Equipo Punto León Inmobiliaria</cite>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo-wrap">
+        <div class="footer-logo-pill">
+          <img src="imagenes/logo.png" alt="Punto León Inmobiliaria Logo">
+        </div>
+      </div>
+      <p>Cuatro fraccionamientos, un mismo compromiso: casas de calidad, seguridad y alta plusvalía en las mejores zonas de León, Gto.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navegación</h4>
+      <ul>
+        <li><a href="#about">Nosotros</a></li>
+        <li><a href="#fraccionamientos">Fraccionamientos</a></li>
+        <li><a href="#amenities">Por qué elegirnos</a></li>
+        <li><a href="#tours">Tours 3D</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Fraccionamientos</h4>
+      <ul>
+        <li><a href="#tracia">Tracia Residencial</a></li>
+        <li><a href="#privanzas">Privanzas</a></li>
+        <li><a href="#contact">Próximos desarrollos</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <ul>
+        <li><a href="https://wa.me/524771065137" target="_blank" rel="noopener">WhatsApp: 477 106 5137</a></li>
+        <li><a href="tel:+524771065137">Llamada: 477 106 5137</a></li>
+        <li><a href="mailto:inmobiliariapuntoleon@gmail.com">inmobiliariapuntoleon@gmail.com</a></li>
+        <li><a href="#contact">Formulario de contacto</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Punto León Inmobiliaria. Todos los derechos reservados.</p>
+    <div class="social-links">
+      <a href="https://wa.me/524771065137" target="_blank" rel="noopener" class="social-link" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+      <a href="mailto:inmobiliariapuntoleon@gmail.com" class="social-link" aria-label="Correo electrónico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 6l10 7 10-7"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ WHATSAPP FLOAT ============ -->
+<a href="https://wa.me/524771065137"
+   id="wa-float" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+  <div class="wa-ring-2" aria-hidden="true"></div>
+  <div class="wa-ring"   aria-hidden="true"></div>
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- ============================================================
+     JAVASCRIPT
+============================================================ -->
+<script>
+(function () {
+  'use strict';
+
+  /* ---- LOADER ---- */
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      var el = document.getElementById('loader');
+      if (el) el.classList.add('hidden');
+    }, 1800);
+  });
+
+  /* ---- NAV SCROLL ---- */
+  var nav = document.getElementById('nav');
+  window.addEventListener('scroll', function () {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  /* ---- MOBILE MENU ---- */
+  var ham = document.getElementById('ham');
+  var mob = document.getElementById('mobile-menu');
+  var mOpen = false;
+
+  function closeMob() {
+    mOpen = false;
+    ham.classList.remove('open');
+    mob.classList.remove('open');
+    ham.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+  window.closeMob = closeMob;
+
+  ham.addEventListener('click', function () {
+    mOpen = !mOpen;
+    ham.classList.toggle('open', mOpen);
+    mob.classList.toggle('open', mOpen);
+    ham.setAttribute('aria-expanded', String(mOpen));
+    document.body.style.overflow = mOpen ? 'hidden' : '';
+  });
+
+  /* ---- PARTICLE SYSTEM  (hero only) ---- */
+  (function () {
+    var canvas = document.getElementById('particle-canvas');
+    if (!canvas) return;
+    var ctx = canvas.getContext('2d');
+    var W, H, pts = [], raf;
+
+    var COLS = [
+      'rgba(185,154,91,',
+      'rgba(124,143,90,',
+      'rgba(224,196,132,',
+      'rgba(255,255,255,'
+    ];
+
+    function resize() {
+      W = canvas.width  = window.innerWidth;
+      H = canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize, { passive: true });
+
+    function Pt() { this.init(); }
+    Pt.prototype.init = function () {
+      this.x  = Math.random() * W;
+      this.y  = Math.random() * H;
+      this.r  = Math.random() * 3.2 + 0.7;
+      this.vx = (Math.random() - 0.5) * 0.38;
+      this.vy = (Math.random() - 0.5) * 0.38;
+      this.a0 = Math.random() * 0.55 + 0.18;
+      this.ps = Math.random() * 0.028 + 0.014;
+      this.po = Math.random() * Math.PI * 2;
+      this.ci = Math.floor(Math.random() * COLS.length);
+      this.a  = this.a0;
+    };
+    Pt.prototype.step = function (t) {
+      this.x += this.vx;
+      this.y += this.vy;
+      this.a = this.a0 + Math.sin(t * this.ps + this.po) * 0.42;
+      if (this.x < -4) this.x = W + 4;
+      if (this.x > W + 4) this.x = -4;
+      if (this.y < -4) this.y = H + 4;
+      if (this.y > H + 4) this.y = -4;
+    };
+    Pt.prototype.draw = function () {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.r, 0, 6.2832);
+      ctx.fillStyle = COLS[this.ci] + this.a + ')';
+      ctx.fill();
+    };
+
+    var N = Math.min(140, Math.floor(W / 9));
+    for (var i = 0; i < N; i++) pts.push(new Pt());
+
+    function drawLines() {
+      var MAX = 135;
+      for (var a = 0; a < pts.length - 1; a++) {
+        for (var b = a + 1; b < pts.length; b++) {
+          var dx = pts[a].x - pts[b].x;
+          var dy = pts[a].y - pts[b].y;
+          var d = Math.sqrt(dx * dx + dy * dy);
+          if (d < MAX) {
+            ctx.beginPath();
+            ctx.moveTo(pts[a].x, pts[a].y);
+            ctx.lineTo(pts[b].x, pts[b].y);
+            ctx.strokeStyle = 'rgba(185,154,91,' + ((1 - d / MAX) * 0.16) + ')';
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    var tick = 0;
+    function loop() {
+      ctx.clearRect(0, 0, W, H);
+      tick++;
+      for (var i = 0; i < pts.length; i++) { pts[i].step(tick); pts[i].draw(); }
+      drawLines();
+      raf = requestAnimationFrame(loop);
+    }
+    loop();
+
+    /* Pause outside viewport */
+    var hero = document.getElementById('hero');
+    new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) {
+        if (!raf) loop();
+      } else {
+        cancelAnimationFrame(raf);
+        raf = null;
+      }
+    }, { threshold: 0.01 }).observe(hero);
+  }());
+
+  /* ---- TYPEWRITER ---- */
+  (function () {
+    var words = ['familia', 'inversión', 'tranquilidad', 'plusvalía', 'nuevo comienzo'];
+    var wi = 0, ci = 0, deleting = false;
+    var el = document.getElementById('typer');
+    if (!el) return;
+
+    function tick() {
+      var w = words[wi];
+      if (!deleting) {
+        el.textContent = w.slice(0, ++ci);
+        if (ci === w.length) {
+          deleting = true;
+          setTimeout(tick, 2400);
+          return;
+        }
+        setTimeout(tick, 115);
+      } else {
+        el.textContent = w.slice(0, --ci);
+        if (ci === 0) {
+          deleting = false;
+          wi = (wi + 1) % words.length;
+        }
+        setTimeout(tick, 72);
+      }
+    }
+    /* Start after hero entrance animations finish */
+    setTimeout(tick, 2800);
+  }());
+
+  /* ---- SCROLL REVEAL ---- */
+  var revealEls = document.querySelectorAll('.reveal');
+  var revealIO = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        revealIO.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.09, rootMargin: '0px 0px -32px 0px' });
+  revealEls.forEach(function (el) { revealIO.observe(el); });
+
+  /* ---- CTAs "Quiero información de..." → preseleccionan el fraccionamiento en el formulario ---- */
+  var fracSelect = document.getElementById('fraccionamiento');
+  if (fracSelect) {
+    document.querySelectorAll('[data-frac]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var val = btn.getAttribute('data-frac');
+        var opt = Array.prototype.find.call(fracSelect.options, function (o) { return o.value === val; });
+        if (opt) fracSelect.value = val;
+      });
+    });
+  }
+
+  /* ---- BOOKING FORM → WhatsApp ---- */
+  var form = document.getElementById('booking-form');
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var n  = document.getElementById('nombre').value.trim();
+      var t  = document.getElementById('telefono').value.trim();
+      var f  = document.getElementById('fraccionamiento').value;
+      var mo = document.getElementById('modelo').value.trim();
+      var m  = document.getElementById('mensaje').value.trim();
+
+      if (!n || !t) {
+        alert('Por favor completa tu nombre y teléfono.');
+        return;
+      }
+
+      var msg = [
+        '🏡 *Punto León Inmobiliaria — Solicitud de Información*',
+        '',
+        '👤 *Nombre:* '          + n,
+        '📞 *Teléfono:* '        + t,
+        '🏘️ *Fraccionamiento:* ' + (f  || 'Aún no decido'),
+        mo ? '🏠 *Modelo:* ' + mo : null,
+        m  ? '💬 *Mensaje:* ' + m : null,
+        '',
+        'Quisiera más información y agendar una visita. ¡Gracias!'
+      ].filter(Boolean).join('\n');
+
+      window.open(
+        'https://wa.me/524771065137?text=' + encodeURIComponent(msg),
+        '_blank', 'noopener'
+      );
+    });
+  }
+
+}());
+</script>
+</body>
+</html>
