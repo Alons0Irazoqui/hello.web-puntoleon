@@ -392,6 +392,8 @@ ul { list-style: none; }
   content: ''; display: block; width: 26px; height: 1px; background: var(--gold); opacity: 0.45;
 }
 .section-tag.no-lines::before, .section-tag.no-lines::after { display: none; }
+.section-tag-lg { font-size: 17px; letter-spacing: 5px; margin-bottom: 20px; }
+.section-tag-lg::before, .section-tag-lg::after { width: 34px; }
 
 .section-title {
   font-family: var(--font-serif);
@@ -530,7 +532,6 @@ ul { list-style: none; }
 }
 
 .model-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 26px; margin-top: 8px; }
-.model-grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 22px; margin-top: 8px; }
 .model-card {
   background: var(--white); border: 1px solid var(--border-d);
   overflow: hidden; transition: box-shadow 0.4s, transform 0.4s var(--ease-out);
@@ -833,12 +834,11 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
 ============================================= */
 @media (max-width: 1024px) {
   .rooms-grid, .frac-grid { grid-template-columns: 1fr 1fr; }
-  .model-grid-4 { grid-template-columns: repeat(2,1fr); }
+  .model-grid { grid-template-columns: repeat(2,1fr); }
   .amenities-grid { grid-template-columns: repeat(2,1fr); }
   .steps-grid { grid-template-columns: 1fr 1fr; }
   .contact-grid { grid-template-columns: 1fr; gap: 52px; }
   .location-grid { grid-template-columns: 1fr; gap: 44px; }
-  .model-grid { grid-template-columns: repeat(2,1fr); }
   .tours-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 768px) {
@@ -847,7 +847,7 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
   .about-grid, .location-grid { grid-template-columns: 1fr; gap: 48px; }
   .about-badge { top: 14px; right: 14px; }
   .rooms-grid, .frac-grid, .frac-grid.cols-2 { grid-template-columns: 1fr; }
-  .model-grid-4, .model-grid { grid-template-columns: 1fr; }
+  .model-grid { grid-template-columns: 1fr; }
   .interior-duo { grid-template-columns: 1fr; }
   .amenities-grid { grid-template-columns: 1fr 1fr; }
   .steps-grid { grid-template-columns: 1fr; }
@@ -1003,7 +1003,7 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
           <div class="room-overlay"></div>
           <div class="room-pills">
             <span class="room-pill">Casa Club</span>
-            <span class="room-pill">4 Modelos</span>
+            <span class="room-pill">3 Modelos</span>
           </div>
           <div class="room-content">
             <p class="room-tag">San Carlos, León</p>
@@ -1090,27 +1090,10 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
     <div class="section-header" style="margin-top:96px;">
       <p class="section-tag reveal">Modelos de Casa</p>
       <h2 class="section-title reveal d1" style="color:var(--text-dark);">Elige el <em>tuyo</em></h2>
-      <p class="section-lead reveal d2" style="color:var(--text-mid);">Cuatro distribuciones para distintas etapas de tu vida, todas con cochera para 2 autos.</p>
+      <p class="section-lead reveal d2" style="color:var(--text-mid);">Tres distribuciones para distintas etapas de tu vida, todas con cochera para 2 autos.</p>
     </div>
 
-    <div class="model-grid-4 reveal">
-      <article class="model-card">
-        <div class="model-card-media">
-          <img src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?auto=format&fit=crop&w=800&q=75" alt="Imagen ilustrativa de fachada moderna, estilo similar al Modelo Bari" loading="lazy">
-          <span class="model-soon">Imagen ilustrativa</span>
-        </div>
-        <div class="model-card-body">
-          <h3 class="model-name">Bari</h3>
-          <p class="model-meta">87.5 m² terreno · 107.63 m² construcción</p>
-          <div class="model-feats">
-            <span class="model-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>2 Autos</span>
-            <span class="model-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>2 1/2 Baños</span>
-            <span class="model-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>2 Recámaras (op. 3)</span>
-            <span class="model-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Patio / Jardín</span>
-          </div>
-        </div>
-      </article>
-
+    <div class="model-grid reveal">
       <article class="model-card">
         <div class="model-card-media">
           <img src="imagenes/tracia-ficha-modelo-libia.jpg" alt="Ficha técnica Modelo Libia, Tracia Residencial" loading="lazy">
@@ -1173,7 +1156,7 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
 <section id="privanzas" aria-labelledby="privanzas-title">
   <div class="container" style="padding:120px 0;">
     <div class="section-header">
-      <p class="section-tag reveal">Privanzas</p>
+      <p class="section-tag section-tag-lg reveal">Privanzas</p>
       <h2 class="section-title reveal d1" id="privanzas-title" style="color:var(--text-dark);">Diseñadas con <em>excelencia</em></h2>
       <p class="section-lead reveal d2" style="color:var(--text-mid);">Arquitectura vanguardista y distribución óptima, a minutos de las mejores plazas, colegios y hospitales de León.</p>
     </div>
