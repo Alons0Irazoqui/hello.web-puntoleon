@@ -1774,7 +1774,7 @@ footer { background: var(--black); padding: 68px 5% 36px; border-top: 1px solid 
         m  ? '💬 *Mensaje:* ' + m : null,
         '',
         'Quisiera más información y agendar una visita. ¡Gracias!'
-      ].filter(Boolean).join('\n');
+      ].filter(function (line) { return line !== null; }).join('\n');
 
       window.open(
         'https://wa.me/524771065137?text=' + encodeURIComponent(msg),
